@@ -5,11 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
-import {OlympicChartComponent} from "./components/olympic-chart/olympic-chart.component";
+import { OlympicChartComponent } from './components/olympic-chart/olympic-chart.component';
+import { CountryDetailComponent } from './pages/country-detail/country-detail.component';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, NotFoundComponent],
-    imports: [BrowserModule, AppRoutingModule, HttpClientModule, OlympicChartComponent],
+    imports: [BrowserModule, AppRoutingModule, HttpClientModule, OlympicChartComponent, CountryDetailComponent],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -1,1 +1,6 @@
-<app-olympic-chart></app-olympic-chart>
+<!-- if data :  The async pipe automatically subscribes to the olympics$ observable and fetches the data -->
+<!-- Assigns the fetched data to the local variable olympics -->
+<div *ngIf="olympics$ | async as olympics">
+    <!-- Passes the olympics data to the app-olympic-chart component via the [data] property -->
+    <app-olympic-chart [data]="olympics"></app-olympic-chart>
+</div>

@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
   constructor(private olympicService: OlympicService) {}
 
   ngOnInit(): void {
+    // load data on app start -> pipe(take(1) = unsubscribe after first emission -> Subscribe = start the observable
     this.olympicService.loadInitialData().pipe(take(1)).subscribe();
   }
 }
