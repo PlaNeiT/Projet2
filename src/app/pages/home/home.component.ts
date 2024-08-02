@@ -20,5 +20,14 @@ export class HomeComponent implements OnInit {
     this.olympicService.loadInitialData().subscribe();
     this.olympicService.getOlympics().subscribe((data: Olympic[]) => {
       this.olympicData = data;
-    });  }
+    });
+  }
+
+  totalMedals(country: Olympic): number {
+    return country.participations.reduce((sum, participation) => sum + participation.medalsCount, 0);
+  }
+
+  totalAthletes(country: Olympic): number {
+    return country.participations.reduce((sum, participation) => sum + participation.athleteCount, 0);
+  }
 }
