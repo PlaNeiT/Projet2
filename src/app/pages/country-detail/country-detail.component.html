@@ -1,0 +1,32 @@
+<div class="chart-container" *ngIf="country">
+    <h2 class="chart-title">{{ country.country }}</h2>
+    <div class="summary">
+        <div class="summary-item">
+            <h3>Number of entries</h3>
+            <p class="summary-value">{{ country.participations.length }}</p>
+        </div>
+        <div class="summary-item">
+            <h3>Total number medals</h3>
+            <p class="summary-value">{{ totalMedals }}</p>
+        </div>
+        <div class="summary-item">
+            <h3>Total number of athletes</h3>
+            <p class="summary-value">{{ totalAthletes }}</p>
+        </div>
+    </div>
+    <ngx-charts-line-chart
+            [view]="[800, 400]"
+            [scheme]="colorScheme"
+            [results]="lineChartData"
+            [xAxis]="true"
+            [yAxis]="true"
+            [legend]="false"
+            [showXAxisLabel]="true"
+            [showYAxisLabel]="true"
+            [xAxisLabel]="'Dates'"
+            [yAxisLabel]="'Medals'"
+            [yScaleMax]="maxMedals"
+            [yScaleMin]="minMedals">
+    </ngx-charts-line-chart>
+    <button (click)="goBack()">Go back</button>
+</div>
