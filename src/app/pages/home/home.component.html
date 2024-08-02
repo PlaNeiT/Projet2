@@ -1,8 +1,1 @@
-<div class="home-container">
-    <h1>Dashboard of Olympic Data</h1>
-    <ul>
-        <li *ngFor="let country of olympicData">
-            {{ country.country }}: {{ country.participations.length }} participations, {{ totalMedals(country) }} medals, {{ totalAthletes(country) }} athletes
-        </li>
-    </ul>
-</div>
+<app-olympic-chart></app-olympic-chart>
