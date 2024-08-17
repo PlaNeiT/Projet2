@@ -38,6 +38,12 @@ export class CountryDetailComponent implements OnInit {
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id')); // Get country ID from URL
     this.olympicService.getOlympics().subscribe((data: Olympic[]) => {
+      // Check if the ID exceeds the total number of countries
+      if (id > data.length) {
+        this.router.navigate(['/not-found']); // Redirect to "not-found" if ID is invalid
+        return;
+      }
+
       this.country = data.find(country => country.id === id); // Find the country by ID
       if (this.country) {
         // Calculate total medals and athletes
