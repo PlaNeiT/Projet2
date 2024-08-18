@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import {Component, HostListener, Input, OnChanges, SimpleChanges} from '@angular/core';
 import { Router } from '@angular/router';
 import { Olympic } from '../../core/models/Olympic';
 import { Color, NgxChartsModule, ScaleType } from '@swimlane/ngx-charts';
@@ -22,10 +22,10 @@ export class OlympicChartComponent implements OnChanges {
 
   // Color scheme for the chart
   colorScheme: Color = {
-    name: 'default',
+    name: 'random',
     selectable: true,
     group: ScaleType.Ordinal,
-    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
+    domain: this.generateRandomColors(5)
   };
 
   totalJOs: number = 0; // Total number of Olympic games
@@ -65,5 +65,43 @@ export class OlympicChartComponent implements OnChanges {
       });
     });
     return years.size;
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any): void {
+    this.adjustChartView();
+  }
+
+  ngOnInit(): void {
+    this.adjustChartView();
+  }
+
+  private adjustChartView(): void {
+    const width = window.innerWidth;
+
+    if (width < 768) {
+      this.view = [380, 320];
+    } else if (width < 1200) {
+      this.view = [500, 300];
+    } else {
+      this.view = [600, 350];
+    }
+  }
+
+  private generateRandomColor(): string {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+
+  private generateRandomColors(numColors: number): string[] {
+    const colors = [];
+    for (let i = 0; i < numColors; i++) {
+      colors.push(this.generateRandomColor());
+    }
+    return colors;
   }
 }

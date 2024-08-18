@@ -14,19 +14,20 @@
             <p class="summary-value">{{ totalAthletes }}</p>
         </div>
     </div>
-    <ngx-charts-line-chart
-            [view]="[800, 400]"
-            [scheme]="colorScheme"
-            [results]="lineChartData"
-            [xAxis]="true"
-            [yAxis]="true"
-            [legend]="false"
-            [showXAxisLabel]="true"
-            [showYAxisLabel]="true"
-            [xAxisLabel]="'Dates'"
-            [yAxisLabel]="'Medals'"
-            [yScaleMax]="maxMedals"
-            [yScaleMin]="minMedals">
-    </ngx-charts-line-chart>
-    <button (click)="goBack()">Go back</button>
+  <ngx-charts-line-chart
+    [view]="[width, height]"
+    [scheme]="colorScheme"
+    [results]="lineChartData"
+    [xAxis]="true"
+    [yAxis]="true"
+    [legend]="false"
+    [showXAxisLabel]="true"
+    [showYAxisLabel]="true"
+    [xAxisLabel]="'Dates'"
+    [yAxisLabel]="'Medals'"
+    [yScaleMax]="maxMedals"
+    [yScaleMin]="minMedals">
+  </ngx-charts-line-chart>
+
+  <button (click)="goBack()">Go back</button>
 </div>

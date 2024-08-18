@@ -52,4 +52,17 @@
   .summary-item {
     margin: 10px 0;
   }
+
+  .chart-title {
+    font-size: 1.8rem; /* Réduire la taille du titre pour les mobiles */
+  }
+
+  .summary-item h3 {
+    font-size: 1rem; /* Réduire la taille des sous-titres pour les mobiles */
+  }
+
+  .summary-value {
+    font-size: 1.2rem; /* Réduire la taille des valeurs pour les mobiles */
+  }
+
 }

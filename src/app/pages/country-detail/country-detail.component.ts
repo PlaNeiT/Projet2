@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OlympicService } from '../../core/services/olympic.service';
 import { Olympic } from '../../core/models/Olympic';
@@ -23,11 +23,13 @@ export class CountryDetailComponent implements OnInit {
   maxMedals: number = 0; // Maximum medals count
 
   colorScheme: Color = {
-    name: 'default',
+    name: 'random',
     selectable: true,
     group: ScaleType.Ordinal,
-    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
+    domain: this.generateRandomColors(5)
   };
+  width: number = window.innerWidth * 0.9;
+  height: number = window.innerHeight * 0.6;
 
   constructor(
       private route: ActivatedRoute, // Handles the active route
@@ -76,5 +78,22 @@ export class CountryDetailComponent implements OnInit {
     this.olympicService.loadInitialData().subscribe(() => {
       this.router.navigate(['/']);
     });
+  }
+
+  private generateRandomColor(): string {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+
+  private generateRandomColors(numColors: number): string[] {
+    const colors = [];
+    for (let i = 0; i < numColors; i++) {
+      colors.push(this.generateRandomColor());
+    }
+    return colors;
   }
 }
