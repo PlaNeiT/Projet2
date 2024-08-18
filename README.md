@@ -1,29 +1,38 @@
-# OlympicGamesStarter
+# Olympic Games Dashboard
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.3.
+This project is a web application designed to display and explore data from past Olympic Games. It is built using Angular and includes various features to visualize and navigate the Olympic data.
 
-Don't forget to install your node_modules before starting (`npm install`).
+## Prerequisites
 
-## Development server
+- Install dependencies using `npm install`.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Development Server
+
+Run `ng serve` to start the development server. Navigate to `http://localhost:4200/`.
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Run `ng build` to compile the project. The build files will be stored in the `dist/` directory.
 
-## Where to start
+## Project Structure
 
-As you can see, an architecture has already been defined for the project. It is just a suggestion, you can choose to use your own. The predefined architecture includes (in addition to the default angular architecture) the following:
+- **components/**: Reusable components used across the application.
+- **pages/**: Components linked to specific routes.
+- **core/**: Contains business logic, including `services` and `models`.
+  
+## Important Files
 
-- `components` folder: contains every reusable components
-- `pages` folder: contains components used for routing
-- `core` folder: contains the business logic (`services` and `models` folders)
+- `app-routing.module.ts`: Handles the routing configuration.
+- `olympic.service.ts`: Manages data fetching and business logic.
 
-I suggest you to start by understanding this starter code. Pay an extra attention to the `app-routing.module.ts` and the `olympic.service.ts`.
+## Features
 
-Once mastered, you should continue by creating the typescript interfaces inside the `models` folder. As you can see I already created two files corresponding to the data included inside the `olympic.json`. With your interfaces, improve the code by replacing every `any` by the corresponding interface.
+- **Dashboard**: Displays the number of medals by country.
+- **Country Detail**: Detailed view of each country’s participation in the Olympic Games.
 
-You're now ready to implement the requested features.
+## Enhancements
 
-Good luck!
+- **Responsive Design**: Ensure the application is fully responsive.
+- **Routing Guard**: Forward invalid country IDs / invalid URL in general to a 404 page.
+
+Enjoy my project!
